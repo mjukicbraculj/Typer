@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="Typist.StageControls.AddTextControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <StackPanel Margin="20, 20, 20, 20">
+        <TextBlock TextWrapping="Wrap">
+            Dear user, <LineBreak/>
+            Here you can add you own text to app collection.<LineBreak/>
+            Select group name:
+        </TextBlock>
+        <ComboBox Margin="0, 10, 0, 0" Width="200" HorizontalAlignment="Left" 
+                  DropDownClosed="GroupSelectionDone" Name="GroupCB" Background="DarkCyan" Foreground="Black">
+            <ComboBoxItem >Beginner</ComboBoxItem>
+            <ComboBoxItem >Intermediate</ComboBoxItem>
+            <ComboBoxItem >Advanced</ComboBoxItem>
+            <ComboBoxItem >Practise</ComboBoxItem>
+        </ComboBox>
+        <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 0" Name="LessonSP">
+            <StackPanel Name="OldLessonSP">
+                <TextBlock>Now, select lesson:</TextBlock>
+                <ComboBox Name="LessonCB" Width="200" HorizontalAlignment="Left" Margin="0, 10, 0, 0"
+                          DropDownClosed="LessonSelectionDone" Background="DarkCyan" Foreground="Black">
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Margin="30, 0, 0, 0" Name="NewLessonSP">
+                <TextBlock>Or add new one:</TextBlock>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox Margin="0, 10, 10, 0" Width="150" Name="LessonNameTB"></TextBox>
+                    <Button Click="AddNewLessonClick" Margin="0, 10, 0, 0" 
+                            Background="DarkCyan">Add</Button>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Margin="0, 10, 0, 0" Name="TextSP">
+            <TextBlock>Write your text:</TextBlock>
+            <TextBox Margin="0, 10, 0, 0" TextWrapping="Wrap" AcceptsReturn="True" 
+                     Height="50" Width="300" HorizontalAlignment="Left" Name="TextTB"
+                     KeyDown="ClearResultTB"></TextBox>
+            <Button Click="AddTextClick" Margin="0, 10, 0, 0" Width="70" HorizontalAlignment="Left"
+                    Background="DarkCyan" >
+                Add text!
+            </Button>
+            <TextBlock  Margin="0, 15, 0, 0" Name="ResultTB" HorizontalAlignment="Left"
+                        Foreground="Red"></TextBlock>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

@@ -1,0 +1,191 @@
+﻿<UserControl x:Class="Typist.StageControls.LessonPlay"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="900" d:DesignWidth="300"
+             TextInput="CheckCurrentLetter" KeyUp="ErraseBtnBackground"
+             PreviewKeyDown="CheckIfSpaceKeyPressed">
+    <Grid Margin="20, 30, 20, 10">
+        <StackPanel Name="WellcomeGird">
+            <StackPanel Margin="20, 20, 10, 10"  Name="WellcomeSP">
+                <TextBlock Name="WellcomeTB" FontSize="14"></TextBlock>
+                <TextBlock TextWrapping="Wrap" FontSize="14">wellcome to this lesson. When you are ready press GO!</TextBlock>
+                <TextBlock FontSize="14">Good luck!</TextBlock>
+                <Button Width="100" Background="DarkCyan" HorizontalAlignment="Left" Margin="0, 20, 0, 20"
+                        Click="GoClick">GO!</Button>
+                <TextBlock  HorizontalAlignment="Left" Margin="0, 20, 0, 20" Foreground="DarkCyan">
+                    <Hyperlink Click="ViewLessonDetailsClick">
+                        <TextBlock Name="HyperLinkText"></TextBlock>
+                    </Hyperlink>
+                </TextBlock>
+            </StackPanel>
+            <StackPanel Name="UserDetailsSP" Margin="20, 10, 20, 0" Visibility="Collapsed">
+                <TextBlock Visibility="Collapsed" Name="WarningTB">You have to be logged!</TextBlock>
+                <ListView  Name="LessonDetailsLV" Visibility="Collapsed" Width="600" 
+                           HorizontalAlignment="Left" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListView.Resources>
+                        <Style TargetType="{x:Type GridViewColumnHeader}">
+                            <Setter Property="HorizontalContentAlignment" Value="Left" />
+                        </Style>
+                    </ListView.Resources>
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Id" Width="100" DisplayMemberBinding="{Binding Id}"/>
+                            <GridViewColumn Header="Speed" Width="100" DisplayMemberBinding="{Binding Speed}"/>
+                            <GridViewColumn Header="Errors"  Width="100" DisplayMemberBinding="{Binding Errors}"/>
+                            <GridViewColumn Header="Time"  Width="150" DisplayMemberBinding="{Binding Time}"/>
+                            <GridViewColumn Header="Created" Width="150" DisplayMemberBinding="{Binding Created}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
+        </StackPanel>
+        <Grid Name="TypeGrid" Margin="0,0,0,10" Focusable="True" Background="Transparent">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0"  Margin="0, 5, 0, 5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="32"/>
+                </Grid.ColumnDefinitions>
+                <!--<Button HorizontalAlignment="Left" Grid.Column="0" Width="32" Height="32" VerticalAlignment="Bottom">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/images/back.png" />
+                    </Button.Background>
+                </Button>-->
+                <Grid  Margin="20, 0, 20, 0" Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center"
+                               FontSize="25"  Background="DarkCyan" Foreground="White"
+                              FontStyle="Oblique" Text="{Binding LessonName}" Padding="10, 10, 10, 10"></TextBlock>
+                    <UniformGrid Grid.Row="1" Columns="3" VerticalAlignment="Bottom">
+                        <StackPanel HorizontalAlignment="Center">
+                            <TextBlock><Bold>Errors</Bold></TextBlock>
+                            <TextBlock Name="ErrorsTB" FontSize="15"></TextBlock>
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Center">
+                            <TextBlock><Bold>Speed</Bold></TextBlock>
+                            <TextBlock Name="SpeedTB" FontSize="15"></TextBlock>
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Center">
+                            <TextBlock><Bold>Time</Bold></TextBlock>
+                            <TextBlock Name="TimeTB" FontSize="15"></TextBlock>
+                        </StackPanel>
+                    </UniformGrid>
+                </Grid>
+                <Button HorizontalAlignment="Right" Grid.Column="1" Width="32"  Name="nextBtn"
+                        Height="32" VerticalAlignment="Bottom" Click="NextBtnClick" Focusable="False">
+                    <Image Source="/Images/next.png" >
+                        <Image.Style>
+                        <Style TargetType="Image">
+                            <Style.Triggers>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter Property="Opacity" Value="0.5" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                        </Image.Style>
+                    </Image>
+                </Button>
+            </Grid>
+            
+            <Border BorderThickness="3, 1, 1, 3" BorderBrush="DarkCyan" Grid.Row="1">
+                <RichTextBox IsReadOnly="True" Background="LightBlue" Name="TextRTB" 
+                                VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="20, 20, 20, 20"
+                                VerticalScrollBarVisibility="Auto">
+                    <FlowDocument FontSize="20" FontStretch="Expanded" 
+                                    FontFamily="Gothic">
+                        <Paragraph Name="RTBParagraph" TextAlignment="Center">
+                            
+                        </Paragraph>
+                    </FlowDocument>
+                </RichTextBox>
+            </Border>
+            <TextBlock HorizontalAlignment="Right" VerticalAlignment="Top" Name="TextCounterTB"  Grid.Row="2"></TextBlock>
+            <UniformGrid Name="KeyboradCroGrid" Margin="0, 40, 0, 10" Grid.Row="3" Rows="5" Width="600">
+                <UniformGrid Columns="13" Margin="0, 0, 10, 0" Name="FirstRowKeysBtn">
+                    <Button Focusable="False">¸</Button>
+                    <Button Focusable="False">1</Button>
+                    <Button Focusable="False">2</Button>
+                    <Button Focusable="False">3</Button>
+                    <Button Focusable="False">4</Button>
+                    <Button Focusable="False">5</Button>
+                    <Button Focusable="False">6</Button>
+                    <Button Focusable="False">7</Button>
+                    <Button Focusable="False">8</Button>
+                    <Button Focusable="False">9</Button>
+                    <Button Focusable="False">0</Button>
+                    <Button Focusable="False">'</Button>
+                    <Button Focusable="False">+</Button>
+                </UniformGrid>
+                <UniformGrid Columns="12" Margin="10, 0, 10, 0" Name="SecondRowKeysBtn">
+                    <Button Focusable="False">Q</Button>
+                    <Button Focusable="False">W</Button>
+                    <Button Focusable="False">E</Button>
+                    <Button Focusable="False">R</Button>
+                    <Button Focusable="False">T</Button>
+                    <Button Focusable="False">Z</Button>
+                    <Button Focusable="False">U</Button>
+                    <Button Focusable="False">I</Button>
+                    <Button Focusable="False">O</Button>
+                    <Button Focusable="False">P</Button>
+                    <Button Focusable="False">Š</Button>
+                    <Button Focusable="False">Đ</Button>
+                </UniformGrid>
+                <UniformGrid Columns="12" Margin="12, 0, 0, 0" Name="ThirdRowKeysBtn">
+                    <Button Focusable="False">A</Button>
+                    <Button Focusable="False">S</Button>
+                    <Button Focusable="False">D</Button>
+                    <Button Focusable="False">F</Button>
+                    <Button Focusable="False">G</Button>
+                    <Button Focusable="False">H</Button>
+                    <Button Focusable="False">J</Button>
+                    <Button Focusable="False">K</Button>
+                    <Button Focusable="False">L</Button>
+                    <Button Focusable="False">Č</Button>
+                    <Button Focusable="False">Ć</Button>
+                    <Button Focusable="False">Ž</Button>
+                </UniformGrid>
+                <UniformGrid Columns="11" Margin="20, 0, 20, 0" Name="ForthRowKeysBtn">
+                    <Button Focusable="False">Y</Button>
+                    <Button Focusable="False">X</Button>
+                    <Button Focusable="False">C</Button>
+                    <Button Focusable="False">V</Button>
+                    <Button Focusable="False">B</Button>
+                    <Button Focusable="False">N</Button>
+                    <Button Focusable="False">M</Button>
+                    <Button Focusable="False">,</Button>
+                    <Button Focusable="False">.</Button>
+                    <Button Focusable="False">-</Button>
+                </UniformGrid>
+                <UniformGrid Columns="1" Name="FifthRowKeysBtn" Margin="60, 0, 80, 0">
+                    <Button Name="SpaceBtn" Focusable="False"></Button>
+                </UniformGrid>
+            </UniformGrid>
+        </Grid>
+        <Grid Name="EndOfLessonGrid">
+            <StackPanel>
+                <TextBlock FontSize="14">
+                    Wuuuhoooo! This lesson is over!<LineBreak/>
+                    Here is you result:
+                </TextBlock>
+
+                <TextBlock FontSize="14" Name="ResultErrorTB"></TextBlock>
+                <TextBlock FontSize="14" Name="ResultSpeedTB"></TextBlock>
+                <TextBlock FontSize="14" Name="ResultTimeTB"></TextBlock>
+                <TextBlock FontSize="14" Name="ResultSavedTB" Visibility="Collapsed"></TextBlock>
+                <Button Margin="0, 10, 0, 10" Width="100" HorizontalAlignment="Left" Background="DarkCyan" 
+                        Click="GoClick">Go again!</Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

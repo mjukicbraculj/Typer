@@ -1,0 +1,86 @@
+﻿<UserControl x:Class="Typist.MainScreen"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="650" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="4*"/>
+       </Grid.ColumnDefinitions>
+        <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Hidden">
+            <StackPanel>
+                <StackPanel Background="AliceBlue">
+                    <Button Height="72" Width="73" Margin="0, 15, 0, 15" Name="ProfileBtn">
+                        <Image Source="Images/user.png">
+                            <Image.Style>
+                                <Style TargetType="Image">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsEnabled" Value="False">
+                                            <Setter Property="Opacity" Value="0.5" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                    </Button>
+                    <TextBlock Text="{Binding MainWind.Username}" Margin="0, 0, 0, 10"
+                                HorizontalAlignment="Center" FontStyle="Italic"></TextBlock>
+                </StackPanel>
+                <Button Background="DarkCyan" Height="40" Click="IntroductionClick">Introduction</Button>
+                <Button Background="DarkCyan" Height="40" Click="ShowBeginnerChoice" 
+                        >Begnner</Button>
+                <StackPanel Name="BeginnerSP">
+                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Beginner0">J, F and Space</Button>
+                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Beginner1">U, R and K Keys</Button>
+                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Beginner2">D, E adn K Keys</Button>
+                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Beginner3">C, G and N Keys</Button>
+                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Beginner4">T, S and L Keys</Button>
+                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Beginner5">O, B and A Keys</Button>
+                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Beginner6">V, H and M Keys</Button>
+                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Beginner7">Period and Comma</Button>
+                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Beginner8">W, X and ; Keys</Button>
+                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Beginner9">Q, Y and P Keys</Button>
+                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Beginner10">Z and Enter keys</Button>
+                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Beginner11">Beginner Wrap Up</Button>
+                </StackPanel>
+                <Button Background="DarkCyan" Height="40" Click="ShowIntermediateChoice">Intermediate</Button>
+                <StackPanel Name="IntermediateSP">
+                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Intermediate0">Easy Home Row</Button>
+                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Intermediate1">Easy Top Row</Button>
+                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Intermediate2">Easy Bottom Row</Button>
+                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Intermediate3">Shift Key and Capitalization</Button>
+                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Intermediate4">Sentences</Button>
+                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Intermediate5">Speed Drills</Button>
+                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Intermediate6">Basic Punctuation</Button>
+                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Intermediate7">Paragraphs</Button>
+                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Intermediate8">Advanced Punctuation</Button>
+                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Intermediate9">Intermediate Wrap Up</Button>
+                </StackPanel>
+                <Button Background="DarkCyan" Height="40" Click="ShowAdvancedChoice">Advanced</Button>
+                <StackPanel Name="AdvancedSP">
+                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Advanced0">Skill Builder Drills</Button>
+                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Advanced1">Numbers Letters Numbers</Button>
+                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Advanced2">Jokes and Laughs</Button>
+                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Advanced3">Accuracy Drills</Button>
+                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Advanced4">Nitro Type Content</Button>
+                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Advanced5">Advanced Symbols</Button>
+                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Advanced6">Numeric Keypad</Button>
+                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Advanced7">Common Medical Terms</Button>
+                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Advanced8">Advanced Wrap Up</Button>
+                </StackPanel>
+                <Button Background="DarkCyan" Height="40" Click="ShowPractiseChoice">Practise</Button>
+                <StackPanel Name="PractiseSP"></StackPanel>
+                <Button Background="DarkCyan" Height="40" Click="AddTextClick">Do it yourself</Button>
+                <Button Background="DarkCyan" Height="40">Settings</Button>
+            </StackPanel>
+        </ScrollViewer>
+        <Border Background="AliceBlue" BorderThickness="2, 2, 1, 1" 
+                                            BorderBrush="DarkCyan"  Grid.Column="1">
+            <Grid Name="StageContainer" HorizontalAlignment="Stretch" 
+                    VerticalAlignment="Stretch"></Grid>
+        </Border>
+    </Grid>
+</UserControl>
