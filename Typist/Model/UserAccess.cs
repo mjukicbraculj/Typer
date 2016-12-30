@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 using System.Data.SQLite;
 using Typist.Objects;
 
-namespace Typist.Data
+namespace Typist.Model
 {
     class UserAccess
     {
 
+        /// <summary>
+        /// Method adds new user to table users.
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns>message about success</returns>
         static public string AddUser(User user)
         {
             using (SQLiteConnection connection = DB.GetConnection())
@@ -37,6 +42,12 @@ namespace Typist.Data
             }
         }
 
+        /// <summary>
+        /// Method checks if password and username are
+        /// correct.
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns>Null if password is correct else error message.</returns>
         static public string VerifyLogin(User user)
         {
             using (SQLiteConnection connection = DB.GetConnection())
@@ -68,6 +79,12 @@ namespace Typist.Data
             }
         }
 
+        /// <summary>
+        /// Method finds id of user with giver
+        /// username.
+        /// </summary>
+        /// <param name="username">value of column username</param>
+        /// <returns>user id</returns>
         static public int GetUserId(string username)
         {
             using (SQLiteConnection connection = DB.GetConnection())

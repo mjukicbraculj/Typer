@@ -16,17 +16,13 @@ using System.Windows.Shapes;
 namespace Typist.StageControls
 {
     /// <summary>
-    /// Interaction logic for IntroductionControl.xaml
+    /// Interaction logic for ShowSettingsControl.xaml
     /// </summary>
-    public partial class IntroductionControl : UserControl
+    public partial class ShowSettingsControl : UserControl
     {
-        public IntroductionControl(string username)
+        public ShowSettingsControl()
         {
             InitializeComponent();
-            if (username != null)
-                WellcomeTB.Text = "Dear " + username + ", wellcome!";
-            else
-                WellcomeTB.Text = "Dear user, wellcome!";
         }
     }
 }

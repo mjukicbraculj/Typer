@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Typist.Contoller;
 
+
 namespace Typist
 {
     /// <summary>
@@ -21,8 +23,6 @@ namespace Typist
     /// </summary>
     public partial class MainWindow : Window
     {
-        Login loginScreen;
-        MainScreen mainScreen;
         string username;
         public string Username
         {
@@ -35,30 +35,31 @@ namespace Typist
         public MainWindow()
         {
             InitializeComponent();
-            loginScreen = new Login(this);
             DB.Prepare();
-            ShowLoginScreen();
+            if ((username = ConfigurationManager.AppSettings["username"]) != null)
+                ShowMainScreen(username);
+            else
+                ShowLoginScreen();
             //DB.Drop();
         }
 
         #region screenVisibility
 
-        private void ShowLoginScreen()
+        public void ShowLoginScreen()
         {
-            this.Content = loginScreen;
+            this.username = null;
+            this.Content = new Login(this);
         }
 
         public void ShowMainScreen(string username)
         {
             this.username = username;
-            if (mainScreen == null)
-                mainScreen = new MainScreen(this);
-            this.Content = mainScreen;
+            this.Content = new MainScreen(this);
         }
         
         #endregion screenVisibility
 
-
+        
 
     }
 }

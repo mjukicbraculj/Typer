@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Typist.Contoller;
+using System.Configuration;
 
 namespace Typist
 {
@@ -29,13 +30,20 @@ namespace Typist
             this.mainWindow = mainWindow;
         }
 
-
+        /// <summary>
+        /// Verify user login and writes to config file 
+        /// if keep me loged in is checked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LoginClick(object sender, RoutedEventArgs e)
         {
             string error = UserContoller.VerifyLogin(UsernameTB.Text, PasswordTB.Password);
             if (error == null)
             {
                 LoginErrorTB.Visibility = Visibility.Collapsed;
+                if (KeepMeLogedInCB.IsChecked == true)
+                    WriteToConfigSettings(UsernameTB.Text);
                 mainWindow.ShowMainScreen(UsernameTB.Text);
             }
             else
@@ -45,6 +53,12 @@ namespace Typist
             }
         }
 
+        /// <summary>
+        /// Adds new User to database.
+        /// Shows message.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RegisterClick(object sender, RoutedEventArgs e)
         {
             string error = UserContoller.AddUser(UsernameTB.Text, PasswordTB.Password);
@@ -60,9 +74,25 @@ namespace Typist
             }
         }
 
+        /// <summary>
+        /// On hyperlink "Proceed without login" click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ProceedClick(object sender, RoutedEventArgs e)
         {
             mainWindow.ShowMainScreen(null);
+        }
+
+        /// <summary>
+        /// Adds key "username" to app.config
+        /// </summary>
+        /// <param name="username"></param>
+        private void WriteToConfigSettings(string username)
+        {
+            Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            config.AppSettings.Settings.Add("username", username);
+            config.Save(ConfigurationSaveMode.Modified);
         }
     }
 }

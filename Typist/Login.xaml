@@ -28,6 +28,7 @@
                     <TextBlock Foreground="White" Margin="30, 15, 30, 0" Visibility="Hidden" Name="SuccessfulRegTB">
                         Successful registration!
                     </TextBlock>
+                    <CheckBox Margin="30, 10, 30, 0" Name="KeepMeLogedInCB">Keep me loged in</CheckBox>
                     <TextBlock Margin="30, 10, 30, 30" HorizontalAlignment="Center">
                         <Hyperlink Foreground="White" Click="ProceedClick">Proceed without account</Hyperlink>
                     </TextBlock>

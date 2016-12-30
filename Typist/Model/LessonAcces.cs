@@ -11,6 +11,11 @@ namespace Typist.Model
     class LessonAcces
     {
 
+        /// <summary>
+        /// Method adds new lesson to table lessons.
+        /// </summary>
+        /// <param name="lesson">lesson to add</param>
+        /// <returns>string about success</returns>
         public static string AddLesson(Lesson lesson)
         {
             using (SQLiteConnection connection = DB.GetConnection())
@@ -31,6 +36,12 @@ namespace Typist.Model
             }
         }
 
+        /// <summary>
+        /// Method finds all lesson's names
+        /// that have given parent
+        /// </summary>
+        /// <param name="parent">lesson's parent</param>
+        /// <returns>string of lesson's names</returns>
         public static List<string> GetLessonsName(string parent)
         {
             using (SQLiteConnection connection = DB.GetConnection())
@@ -54,6 +65,12 @@ namespace Typist.Model
             }
         }
 
+        /// <summary>
+        /// Method finds id of lesson with 
+        /// given name
+        /// </summary>
+        /// <param name="name">lesson name</param>
+        /// <returns>lesson id</returns>
         public static int getLessonId(string name)
         {
             using (SQLiteConnection connection = DB.GetConnection())
@@ -73,6 +90,34 @@ namespace Typist.Model
                 catch (Exception)
                 {
                     return -1;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Method finds all distinct groupTypes (Beginner, ...)
+        /// </summary>
+        /// <returns>List of groupTypes</returns>
+        public static List<string> GetGroupTypes()
+        {
+            using (SQLiteConnection connection = DB.GetConnection())
+            {
+                try
+                {
+                    connection.Open();
+                    List<string> parents = new List<string>();
+                    string selectLessonId = @"select distinct parent from lessons";
+                    SQLiteCommand command = new SQLiteCommand(selectLessonId, connection);
+                    SQLiteDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        parents.Add(reader["parent"].ToString());
+                    }
+                    return parents;
+                }
+                catch (Exception)
+                {
+                    return null;
                 }
             }
         }

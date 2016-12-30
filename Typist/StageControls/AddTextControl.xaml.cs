@@ -23,22 +23,48 @@ namespace Typist.StageControls
     {
         private string username;
         Dictionary<string, List<string>> groupLessons;
-        public AddTextControl(string username)
+        MainScreen parent;
+        public string LessonName { get; set; }
+        public AddTextControl(string username, MainScreen parent, string heading)
         {
             InitializeComponent();
             this.username = username;
+            if (username != null)
+                WellcomeTB.Text = "Dear " + username + ",";
+            else
+                WellcomeTB.Text = "Dear user,";
             groupLessons = new Dictionary<string, List<string>>();
             LessonSP.Visibility = Visibility.Collapsed;
             TextSP.Visibility = Visibility.Collapsed;
+            this.parent = parent;
+            LessonName = heading;
+            this.DataContext = this;
         }
 
+        /// <summary>
+        /// If selected group and lesson,
+        /// adds text to database.
+        /// </summary>
+        /// <param name="sender">Button AddText</param>
+        /// <param name="e"></param>
         private void AddTextClick(object sender, RoutedEventArgs e)
         {
-            ResultTB.Text = TextController.AddText(TextTB.Text, LessonCB.Text);
+            if (LessonCB.SelectedIndex == -1)
+            {
+                ResultTB.Text = "You must chose lesson name!";
+                return;
+            }
+            ResultTB.Text = TextController.AddText(TextTB.Text.Trim().Replace("'", "''"), LessonCB.Text);
             if (ResultTB.Text.Equals("Done successfully!"))
                 TextTB.Text = String.Empty;
         }
 
+        /// <summary>
+        /// Called on dropDown of ComboBox
+        /// when user selects lesson group.
+        /// </summary>
+        /// <param name="sender">ComboBox GroupCB</param>
+        /// <param name="e"></param>
         private void GroupSelectionDone(object sender, EventArgs e)
         {
             ComboBox CBox = sender as ComboBox;
@@ -55,6 +81,11 @@ namespace Typist.StageControls
             }
         }
 
+        /// <summary>
+        /// Called on Add text Button.
+        /// </summary>
+        /// <param name="sender">Button Add text</param>
+        /// <param name="e"></param>
         private void AddNewLessonClick(object sender, RoutedEventArgs e)
         {
             string error = LessonController.AddLesson(LessonNameTB.Text, GroupCB.Text);
@@ -62,16 +93,29 @@ namespace Typist.StageControls
                 MessageBox.Show(error);
             else
             {
-                groupLessons[GroupCB.Text] = LessonController.GetLessonsName(GroupCB.Text);
+                groupLessons[GroupCB.Text].Add(LessonNameTB.Text);
                 LessonCB.ItemsSource = groupLessons[GroupCB.Text];
+                LessonCB.Items.Refresh();
+                parent.AddPractiseButton(LessonNameTB.Text);
             }
         }
 
+        /// <summary>
+        /// Called on drop down of lessons combobox.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LessonSelectionDone(object sender, EventArgs e)
         {
             TextSP.Visibility = Visibility.Visible;
         }
 
+        /// <summary>
+        /// Used for clearing message about adding text 
+        /// to database when doing that more than once.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ClearResultTB(object sender, KeyEventArgs e)
         {
             ResultTB.Text = String.Empty;

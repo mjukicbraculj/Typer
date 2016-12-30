@@ -10,6 +10,12 @@ namespace Typist.Model
 {
     class TextAccess
     {
+
+        /// <summary>
+        /// Method adds text to table texts
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns>message about success</returns>
         public static string AddText(Text text)
         {
             using (SQLiteConnection connection = DB.GetConnection())
@@ -29,13 +35,19 @@ namespace Typist.Model
                         return "Done successfully! :)";
                     }
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
                     return "Error in adding text";
                 }
             }
         }
 
+        /// <summary>
+        /// Method finds rows of table texts with given lessonId
+        /// Makes list of column text.
+        /// </summary>
+        /// <param name="lesssonId"></param>
+        /// <returns>list of texts</returns>
         public static List<string> GetTexts(int lesssonId)
         {
             using (SQLiteConnection connection = DB.GetConnection())

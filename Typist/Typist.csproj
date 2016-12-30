@@ -35,6 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.SQLite">
       <HintPath>..\..\..\Documents\Visual Studio 2012\Projects\Bazica\lib\System.Data.SQLite.dll</HintPath>
@@ -57,7 +58,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Contoller\LessonController.cs" />
-    <Compile Include="Contoller\LessonDetailContoller.cs" />
+    <Compile Include="Contoller\LessonDetailController.cs" />
     <Compile Include="Contoller\TextController.cs" />
     <Compile Include="Model\LessonAcces.cs" />
     <Compile Include="Model\LessonDetailAccess.cs" />
@@ -73,6 +74,12 @@
     </Compile>
     <Compile Include="StageControls\LessonPlay.xaml.cs">
       <DependentUpon>LessonPlay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StageControls\ShowProfileControl.xaml.cs">
+      <DependentUpon>ShowProfileControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StageControls\ShowSettingsControl.xaml.cs">
+      <DependentUpon>ShowSettingsControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="StageControls\TextDetailControl.xaml.cs">
       <DependentUpon>TextDetailControl.xaml</DependentUpon>
@@ -118,6 +125,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="StageControls\ShowProfileControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StageControls\ShowSettingsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="StageControls\TextDetailControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -157,6 +172,9 @@
   <ItemGroup>
     <Resource Include="Images\back.png" />
     <Resource Include="Images\next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\typist.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

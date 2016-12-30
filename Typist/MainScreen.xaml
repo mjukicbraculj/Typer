@@ -13,7 +13,7 @@
         <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Hidden">
             <StackPanel>
                 <StackPanel Background="AliceBlue">
-                    <Button Height="72" Width="73" Margin="0, 15, 0, 15" Name="ProfileBtn">
+                    <Button Height="72" Width="73" Margin="0, 15, 0, 0" Name="ProfileBtn" Click="ShowProfileClick">
                         <Image Source="Images/user.png">
                             <Image.Style>
                                 <Style TargetType="Image">
@@ -26,7 +26,9 @@
                             </Image.Style>
                         </Image>
                     </Button>
-                    <TextBlock Text="{Binding MainWind.Username}" Margin="0, 0, 0, 10"
+                    <Button Name="LogOutBtn" Click="LogOutClick" Width="73" 
+                            HorizontalAlignment="Center">Log out</Button>
+                    <TextBlock Text="{Binding MainWind.Username}" Margin="0, 10, 0, 10"
                                 HorizontalAlignment="Center" FontStyle="Italic"></TextBlock>
                 </StackPanel>
                 <Button Background="DarkCyan" Height="40" Click="IntroductionClick">Introduction</Button>
@@ -74,7 +76,7 @@
                 <Button Background="DarkCyan" Height="40" Click="ShowPractiseChoice">Practise</Button>
                 <StackPanel Name="PractiseSP"></StackPanel>
                 <Button Background="DarkCyan" Height="40" Click="AddTextClick">Do it yourself</Button>
-                <Button Background="DarkCyan" Height="40">Settings</Button>
+                <Button Background="DarkCyan" Height="40" Click="SettingsClick">Settings</Button>
             </StackPanel>
         </ScrollViewer>
         <Border Background="AliceBlue" BorderThickness="2, 2, 1, 1" 

@@ -25,3 +25,7 @@ C:\Users\Mira\Desktop\Typist\Typist\obj\Debug\StageControls\AddTextControl.baml
 C:\Users\Mira\Desktop\Typist\Typist\obj\Debug\StageControls\AddTextControl.g.cs
 C:\Users\Mira\Desktop\Typist\Typist\obj\Debug\StageControls\LessonPlay.baml
 C:\Users\Mira\Desktop\Typist\Typist\obj\Debug\StageControls\LessonPlay.g.cs
+C:\Users\Mira\Desktop\Typist\Typist\obj\Debug\StageControls\ShowProfileControl.baml
+C:\Users\Mira\Desktop\Typist\Typist\obj\Debug\StageControls\ShowProfileControl.g.cs
+C:\Users\Mira\Desktop\Typist\Typist\obj\Debug\StageControls\ShowSettingsControl.baml
+C:\Users\Mira\Desktop\Typist\Typist\obj\Debug\StageControls\ShowSettingsControl.g.cs

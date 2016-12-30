@@ -12,21 +12,28 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Typist.Contoller;
 
 namespace Typist.StageControls
 {
     /// <summary>
-    /// Interaction logic for IntroductionControl.xaml
+    /// Interaction logic for ShowProfileControl.xaml
     /// </summary>
-    public partial class IntroductionControl : UserControl
+    public partial class ShowProfileControl : UserControl
     {
-        public IntroductionControl(string username)
+        private string Username { get; set; }
+        public ShowProfileControl(string username)
         {
             InitializeComponent();
+            Username = username;
             if (username != null)
-                WellcomeTB.Text = "Dear " + username + ", wellcome!";
-            else
-                WellcomeTB.Text = "Dear user, wellcome!";
+            {
+                ProfileGrid.Visibility = Visibility.Visible;
+                DearTB.Text = "Dear " + username + ", ";
+                LessonDetailsAverageLV.ItemsSource = LessonDetailController.GetLessonDetailsByUser(username);
+            }
         }
+
+
     }
 }
