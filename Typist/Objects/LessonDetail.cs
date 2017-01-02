@@ -13,10 +13,10 @@ namespace Typist.Objects
         public int UserId { get; set; }
         public double Speed { get; set; }
         public int Errors { get; set; }
-        public string Time { get; set; }
+        public double Time { get; set; }
         public string Created { get; set; }
         public string Parent { get; set; }
-        public LessonDetail(double speed, int errors, string time, string created,
+        public LessonDetail(double speed, int errors, double time, string created,
                             int id = -1, int lessonId = -1, int userId = -1)
         {
             Id = id;

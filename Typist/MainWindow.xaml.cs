@@ -40,7 +40,28 @@ namespace Typist
                 ShowMainScreen(username);
             else
                 ShowLoginScreen();
+
+            if (ConfigurationManager.AppSettings["Theme"].Equals("GreenTheme.xaml"))
+                SetTheme("GreenTheme.xaml");
+            else if (ConfigurationManager.AppSettings["Theme"].Equals("RedTheme.xaml"))
+                SetTheme("RedTheme.xaml");
             //DB.Drop();
+        }
+
+        /// <summary>
+        /// Method removes all dictionary resources from app resources and
+        /// adds new dictionary
+        /// </summary>
+        /// <param name="themeName">name of new t</param>
+        private void SetTheme(string themeName)
+        {
+
+            Application.Current.Resources.MergedDictionaries.Clear();
+
+            ResourceDictionary dict = new ResourceDictionary();
+            dict.Source = new Uri("Themes/" + themeName, UriKind.Relative);
+
+            Application.Current.Resources.MergedDictionaries.Add(dict);
         }
 
         #region screenVisibility

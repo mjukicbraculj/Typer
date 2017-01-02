@@ -7,14 +7,14 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <StackPanel Margin="20, 20, 20, 20">
         <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0"
-                               FontSize="25"  Background="DarkCyan" Foreground="White"
+                               FontSize="25" Style="{DynamicResource headingStyle}" 
                               FontStyle="Oblique" Text="{Binding LessonName}" Padding="10, 10, 10, 10"></TextBlock>
         <TextBlock TextWrapping="Wrap" Name="WellcomeTB" Margin="0, 30, 0, 0"></TextBlock>
         <TextBlock>Here you can add you own text to app collection.<LineBreak/>
             Select group name:
         </TextBlock>
         <ComboBox Margin="0, 10, 0, 0" Width="200" HorizontalAlignment="Left" 
-                  DropDownClosed="GroupSelectionDone" Name="GroupCB" Background="DarkCyan" Foreground="Black">
+                  DropDownClosed="GroupSelectionDone" Name="GroupCB" Background="{DynamicResource appBorder}" Foreground="Black">
             <ComboBoxItem >Beginner</ComboBoxItem>
             <ComboBoxItem >Intermediate</ComboBoxItem>
             <ComboBoxItem >Advanced</ComboBoxItem>
@@ -24,7 +24,7 @@
             <StackPanel Name="OldLessonSP">
                 <TextBlock>Now, select lesson:</TextBlock>
                 <ComboBox Name="LessonCB" Width="200" HorizontalAlignment="Left" Margin="0, 10, 0, 0"
-                          DropDownClosed="LessonSelectionDone" Background="DarkCyan" Foreground="Black">
+                          DropDownClosed="LessonSelectionDone" Background="{DynamicResource appBorder}" Foreground="Black">
                 </ComboBox>
             </StackPanel>
             <StackPanel Margin="30, 0, 0, 0" Name="NewLessonSP">
@@ -32,7 +32,7 @@
                 <StackPanel Orientation="Horizontal">
                     <TextBox Margin="0, 10, 10, 0" Width="150" Name="LessonNameTB"></TextBox>
                     <Button Click="AddNewLessonClick" Margin="0, 10, 0, 0" 
-                            Background="DarkCyan">Add</Button>
+                            Style="{DynamicResource buttonStyle}">Add</Button>
                 </StackPanel>
             </StackPanel>
         </StackPanel>
@@ -42,7 +42,7 @@
                      Height="50" Width="300" HorizontalAlignment="Left" Name="TextTB"
                      KeyDown="ClearResultTB"></TextBox>
             <Button Click="AddTextClick" Margin="0, 10, 0, 0" Width="70" HorizontalAlignment="Left"
-                    Background="DarkCyan" >
+                    Style="{DynamicResource buttonStyle}">
                 Add text!
             </Button>
             <TextBlock  Margin="0, 15, 0, 0" Name="ResultTB" HorizontalAlignment="Left"

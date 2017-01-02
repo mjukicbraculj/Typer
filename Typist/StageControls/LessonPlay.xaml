@@ -13,14 +13,14 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0"
-                               FontSize="25"  Background="DarkCyan" Foreground="White"
+                               FontSize="25"  Style="{DynamicResource headingStyle}"
                               FontStyle="Oblique" Text="{Binding LessonName}" Padding="10, 10, 10, 10"></TextBlock>
         <StackPanel Name="WellcomeGird" Grid.Row="1">
             <StackPanel Margin="20, 20, 20, 10"  Name="WellcomeSP">
                 <TextBlock Name="WellcomeTB" FontSize="14"></TextBlock>
                 <TextBlock TextWrapping="Wrap" FontSize="14">wellcome to this lesson. When you are ready press GO!</TextBlock>
                 <TextBlock FontSize="14">Good luck!</TextBlock>
-                <Button Width="100" Background="DarkCyan" HorizontalAlignment="Left" Margin="0, 20, 0, 20"
+                <Button Width="100" Style="{DynamicResource buttonStyle}" HorizontalAlignment="Left" Margin="0, 20, 0, 20"
                         Click="GoClick">GO!</Button>
                 <TextBlock Name="EmptyLessonTB" Visibility="Collapsed" Margin="0, 10, 0, 10">Unfortunately, this lesson is empty!
                 (Porin i Laki je nisu popunili :))</TextBlock>
@@ -186,8 +186,8 @@
                 <TextBlock FontSize="14" Name="ResultSpeedTB"></TextBlock>
                 <TextBlock FontSize="14" Name="ResultTimeTB"></TextBlock>
                 <TextBlock FontSize="14" Name="ResultSavedTB" Visibility="Collapsed"></TextBlock>
-                <Button Margin="0, 10, 0, 10" Width="100" HorizontalAlignment="Left" Background="DarkCyan" 
-                        Click="GoClick">Go again!</Button>
+                <Button Margin="0, 10, 0, 10" Width="100" HorizontalAlignment="Left" 
+                        Click="GoClick" Style="{DynamicResource buttonStyle}">Go again!</Button>
             </StackPanel>
         </Grid>
     </Grid>

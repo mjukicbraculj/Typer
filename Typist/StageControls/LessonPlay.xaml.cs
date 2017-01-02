@@ -194,7 +194,7 @@ namespace Typist.StageControls
             {
                 LessonDetail detail = new LessonDetail(Convert.ToDouble(SpeedTB.Text),
                                                         Convert.ToInt32(ErrorsTB.Text),
-                                                        TimeTB.Text,
+                                                        sw.Elapsed.TotalSeconds,
                                                         DateTime.Now.ToString(),
                                                         0,
                                                         lessonId,
@@ -205,7 +205,7 @@ namespace Typist.StageControls
             TypeGrid.Visibility = Visibility.Collapsed;
             EndOfLessonGrid.Visibility = Visibility.Visible;
             ResultErrorTB.Text = "Errors: " + ErrorsTB.Text;
-            ResultTimeTB.Text = "Passed time: " + TimeTB.Text;
+            ResultTimeTB.Text = "Passed time: " + sw.Elapsed.TotalSeconds;
             ResultSpeedTB.Text = "Speed: " + SpeedTB.Text;
         }
 

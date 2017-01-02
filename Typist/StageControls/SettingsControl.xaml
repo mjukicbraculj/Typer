@@ -7,7 +7,18 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
         <TabControl>
-            <TabItem Header="Appearance"></TabItem>
+            <TabItem Header="Appearance">
+                <StackPanel>
+                    <Label>
+                        Theme
+                    </Label>
+                    <StackPanel>
+                        <RadioButton GroupName="ThemeRB" Content="Red Theme" Checked="SetRedTheme" Name="redCB"/>
+                        <RadioButton GroupName="ThemeRB" Content="Green Theme"
+                                        Checked="SetGreenTheme" Name="greenCB"/>
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
             <TabItem Header="Sound"></TabItem>
             <TabItem Header="Keyboard"></TabItem>
         </TabControl>

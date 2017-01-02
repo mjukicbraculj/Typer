@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Mira\Desktop\Typist\Typist\App.xaml
-9922329767
+10-972738151
 
-26726880682
+252113118004
 14-2088379858
-Login.xaml;MainScreen.xaml;MainWindow.xaml;StageControls\AddTextControl.xaml;StageControls\IntroductionControl.xaml;StageControls\LessonPlay.xaml;StageControls\ShowProfileControl.xaml;StageControls\ShowSettingsControl.xaml;StageControls\TextDetailControl.xaml;
+Login.xaml;MainScreen.xaml;MainWindow.xaml;StageControls\AddTextControl.xaml;StageControls\IntroductionControl.xaml;StageControls\LessonPlay.xaml;StageControls\ProfileControl.xaml;StageControls\SettingsControl.xaml;Themes\RedTheme.xaml;Themes\GreenTheme.xaml;
 
 False
 

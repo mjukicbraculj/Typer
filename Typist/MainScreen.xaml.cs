@@ -147,7 +147,7 @@ namespace Typist
         {
             Button btn = new Button();
             btn.Content = name;
-            btn.Background = Brushes.LightBlue;
+            btn.SetResourceReference(Grid.BackgroundProperty, "childButtonBackground");
             btn.Height = 25;
             btn.Click += LessonClick;
             PractiseSP.Children.Add(btn);

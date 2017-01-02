@@ -67,12 +67,11 @@ namespace Typist.Contoller
         private static LessonDetail MakeAverageLessonDetail(string key, Dictionary<string, List<LessonDetail>> dict)
         {
             LessonDetail averageDetail = new LessonDetail();
-            double seconds = 0;
             foreach(LessonDetail detail in dict[key]) 
             {
                 averageDetail.Speed += detail.Speed;
                 averageDetail.Errors += detail.Errors;
-                seconds += TimeSpan.Parse(detail.Time).TotalSeconds;
+                averageDetail.Time += detail.Time;
 
             }
             if (dict[key].Count() > 0)
@@ -80,7 +79,8 @@ namespace Typist.Contoller
                 averageDetail.Speed /= dict[key].Count();
                 averageDetail.Speed = Math.Round(averageDetail.Speed, 3);
                 averageDetail.Errors = Convert.ToInt32((double)averageDetail.Errors / dict[key].Count());
-                averageDetail.Time = TimeSpan.FromSeconds((seconds / dict[key].Count())).ToString();
+                averageDetail.Time = averageDetail.Time / dict[key].Count();
+                averageDetail.Time = Math.Round(averageDetail.Time, 3);
                 averageDetail.Created = dict[key][dict[key].Count()-1].Created;
                 averageDetail.Parent = key;
                 return averageDetail;

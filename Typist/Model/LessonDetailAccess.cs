@@ -37,7 +37,7 @@ namespace Typist.Model
                     {
                         LessonDetail detail = new LessonDetail(Convert.ToDouble(reader["speed"]),
                                                                 Convert.ToInt32(reader["errors"]),
-                                                                reader["time"].ToString(),
+                                                                Convert.ToDouble(reader["time"]),
                                                                 reader["created"].ToString(),
                                                                 Convert.ToInt32(reader["id"]));
                         details.Add(detail);
@@ -112,7 +112,7 @@ namespace Typist.Model
                     {
                         LessonDetail detail = new LessonDetail(Convert.ToDouble(reader["speed"]),
                                                                 Convert.ToInt32(reader["errors"]),
-                                                                reader["time"].ToString(),
+                                                                Convert.ToDouble(reader["time"]),
                                                                 reader["created"].ToString(),
                                                                 Convert.ToInt32(reader["id"]));
                         groupLessonsDict[reader["parent"].ToString()].Add(detail);

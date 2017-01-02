@@ -46,7 +46,7 @@ namespace Typist
                                                 userId integer not null,
                                                 speed real not null,
                                                 errors integer not null,
-                                                time varchar(30) not null,
+                                                time real not null,
                                                 created timestamp default current_timestamp,
                                                 foreign key(lessonId) references lessons(id),
                                                 foreign key(userId) references users(id))";
@@ -66,7 +66,7 @@ namespace Typist
             using (SQLiteConnection connection = GetConnection())
             {
                 connection.Open();
-                string createUsers = @"drop table users";
+                string createUsers = @"drop table lessondetails";
                 SQLiteCommand command = new SQLiteCommand(createUsers, connection);
                 command.ExecuteNonQuery();
             }

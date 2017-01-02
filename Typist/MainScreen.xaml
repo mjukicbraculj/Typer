@@ -12,7 +12,7 @@
        </Grid.ColumnDefinitions>
         <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Hidden">
             <StackPanel>
-                <StackPanel Background="AliceBlue">
+                <StackPanel Background="{DynamicResource appBackground}">
                     <Button Height="72" Width="73" Margin="0, 15, 0, 0" Name="ProfileBtn" Click="ShowProfileClick">
                         <Image Source="Images/user.png">
                             <Image.Style>
@@ -31,56 +31,87 @@
                     <TextBlock Text="{Binding MainWind.Username}" Margin="0, 10, 0, 10"
                                 HorizontalAlignment="Center" FontStyle="Italic"></TextBlock>
                 </StackPanel>
-                <Button Background="DarkCyan" Height="40" Click="IntroductionClick">Introduction</Button>
-                <Button Background="DarkCyan" Height="40" Click="ShowBeginnerChoice" 
+                <Button Style="{DynamicResource buttonStyle}" Height="40" Click="IntroductionClick">Introduction</Button>
+                <Button Style="{DynamicResource buttonStyle}" Height="40" Click="ShowBeginnerChoice" 
                         >Begnner</Button>
                 <StackPanel Name="BeginnerSP">
-                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Beginner0">J, F and Space</Button>
-                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Beginner1">U, R and K Keys</Button>
-                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Beginner2">D, E adn K Keys</Button>
-                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Beginner3">C, G and N Keys</Button>
-                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Beginner4">T, S and L Keys</Button>
-                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Beginner5">O, B and A Keys</Button>
-                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Beginner6">V, H and M Keys</Button>
-                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Beginner7">Period and Comma</Button>
-                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Beginner8">W, X and ; Keys</Button>
-                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Beginner9">Q, Y and P Keys</Button>
-                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Beginner10">Z and Enter keys</Button>
-                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Beginner11">Beginner Wrap Up</Button>
+                    <Button Background="{DynamicResource childButtonBackground}" Height="25" Click="LessonClick" 
+                            Name="Beginner0">J, F and Space</Button>
+                    <Button Background="{DynamicResource childButtonBackground}" Height="25" Click="LessonClick"
+                            Name="Beginner1">U, R and K Keys</Button>
+                    <Button Background="{DynamicResource childButtonBackground}" Height="25" Click="LessonClick" 
+                            Name="Beginner2">D, E adn K Keys</Button>
+                    <Button Background="{DynamicResource childButtonBackground}" Height="25" Click="LessonClick" 
+                            Name="Beginner3">C, G and N Keys</Button>
+                    <Button Background="{DynamicResource childButtonBackground}" Height="25" Click="LessonClick" 
+                            Name="Beginner4">T, S and L Keys</Button>
+                    <Button Background="{DynamicResource childButtonBackground}" Height="25" Click="LessonClick" 
+                            Name="Beginner5">O, B and A Keys</Button>
+                    <Button Background="{DynamicResource childButtonBackground}" Height="25" Click="LessonClick" 
+                            Name="Beginner6">V, H and M Keys</Button>
+                    <Button Background="{DynamicResource childButtonBackground}" Height="25" Click="LessonClick" 
+                            Name="Beginner7">Period and Comma</Button>
+                    <Button Background="{DynamicResource childButtonBackground}" Height="25" Click="LessonClick" 
+                            Name="Beginner8">W, X and ; Keys</Button>
+                    <Button Background="{DynamicResource childButtonBackground}" Height="25" Click="LessonClick" 
+                            Name="Beginner9">Q, Y and P Keys</Button>
+                    <Button Background="{DynamicResource childButtonBackground}" Height="25" Click="LessonClick" 
+                            Name="Beginner10">Z and Enter keys</Button>
+                    <Button Background="{DynamicResource childButtonBackground}" Height="25" Click="LessonClick" 
+                            Name="Beginner11">Beginner Wrap Up</Button>
                 </StackPanel>
-                <Button Background="DarkCyan" Height="40" Click="ShowIntermediateChoice">Intermediate</Button>
+                <Button Style="{DynamicResource buttonStyle}" Height="40" Click="ShowIntermediateChoice">Intermediate</Button>
                 <StackPanel Name="IntermediateSP">
-                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Intermediate0">Easy Home Row</Button>
-                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Intermediate1">Easy Top Row</Button>
-                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Intermediate2">Easy Bottom Row</Button>
-                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Intermediate3">Shift Key and Capitalization</Button>
-                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Intermediate4">Sentences</Button>
-                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Intermediate5">Speed Drills</Button>
-                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Intermediate6">Basic Punctuation</Button>
-                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Intermediate7">Paragraphs</Button>
-                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Intermediate8">Advanced Punctuation</Button>
-                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Intermediate9">Intermediate Wrap Up</Button>
+                    <Button Background="{DynamicResource childButtonBackground}" Height="25" Click="LessonClick"
+                            Name="Intermediate0">Easy Home Row</Button>
+                    <Button Background="{DynamicResource childButtonBackground}" Height="25" Click="LessonClick" 
+                            Name="Intermediate1">Easy Top Row</Button>
+                    <Button Background="{DynamicResource childButtonBackground}" Height="25" Click="LessonClick" 
+                            Name="Intermediate2">Easy Bottom Row</Button>
+                    <Button Background="{DynamicResource childButtonBackground}" Height="25" Click="LessonClick" 
+                            Name="Intermediate3">Shift Key and Capitalization</Button>
+                    <Button Background="{DynamicResource childButtonBackground}" Height="25" Click="LessonClick" 
+                            Name="Intermediate4">Sentences</Button>
+                    <Button Background="{DynamicResource childButtonBackground}" Height="25" Click="LessonClick" 
+                            Name="Intermediate5">Speed Drills</Button>
+                    <Button Background="{DynamicResource childButtonBackground}" Height="25" Click="LessonClick" 
+                            Name="Intermediate6">Basic Punctuation</Button>
+                    <Button Background="{DynamicResource childButtonBackground}" Height="25" Click="LessonClick" 
+                            Name="Intermediate7">Paragraphs</Button>
+                    <Button Background="{DynamicResource childButtonBackground}" Height="25" Click="LessonClick" 
+                            Name="Intermediate8">Advanced Punctuation</Button>
+                    <Button Background="{DynamicResource childButtonBackground}" Height="25" Click="LessonClick" 
+                            Name="Intermediate9">Intermediate Wrap Up</Button>
                 </StackPanel>
-                <Button Background="DarkCyan" Height="40" Click="ShowAdvancedChoice">Advanced</Button>
+                <Button Style="{DynamicResource buttonStyle}" Height="40" Click="ShowAdvancedChoice">Advanced</Button>
                 <StackPanel Name="AdvancedSP">
-                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Advanced0">Skill Builder Drills</Button>
-                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Advanced1">Numbers Letters Numbers</Button>
-                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Advanced2">Jokes and Laughs</Button>
-                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Advanced3">Accuracy Drills</Button>
-                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Advanced4">Nitro Type Content</Button>
-                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Advanced5">Advanced Symbols</Button>
-                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Advanced6">Numeric Keypad</Button>
-                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Advanced7">Common Medical Terms</Button>
-                    <Button Background="LightBlue" Height="25" Click="LessonClick" Name="Advanced8">Advanced Wrap Up</Button>
+                    <Button Background="{DynamicResource childButtonBackground}" Height="25" Click="LessonClick" 
+                            Name="Advanced0">Skill Builder Drills</Button>
+                    <Button Background="{DynamicResource childButtonBackground}" Height="25" Click="LessonClick" 
+                            Name="Advanced1">Numbers Letters Numbers</Button>
+                    <Button Background="{DynamicResource childButtonBackground}" Height="25" Click="LessonClick" 
+                            Name="Advanced2">Jokes and Laughs</Button>
+                    <Button Background="{DynamicResource childButtonBackground}" Height="25" Click="LessonClick" 
+                            Name="Advanced3">Accuracy Drills</Button>
+                    <Button Background="{DynamicResource childButtonBackground}" Height="25" Click="LessonClick" 
+                            Name="Advanced4">Nitro Type Content</Button>
+                    <Button Background="{DynamicResource childButtonBackground}" Height="25" Click="LessonClick" 
+                            Name="Advanced5">Advanced Symbols</Button>
+                    <Button Background="{DynamicResource childButtonBackground}" Height="25" Click="LessonClick" 
+                            Name="Advanced6">Numeric Keypad</Button>
+                    <Button Background="{DynamicResource childButtonBackground}" Height="25" Click="LessonClick" 
+                            Name="Advanced7">Common Medical Terms</Button>
+                    <Button Background="{DynamicResource childButtonBackground}" Height="25" Click="LessonClick" 
+                            Name="Advanced8">Advanced Wrap Up</Button>
                 </StackPanel>
-                <Button Background="DarkCyan" Height="40" Click="ShowPractiseChoice">Practise</Button>
+                <Button Style="{DynamicResource buttonStyle}" Height="40" Click="ShowPractiseChoice">Practise</Button>
                 <StackPanel Name="PractiseSP"></StackPanel>
-                <Button Background="DarkCyan" Height="40" Click="AddTextClick">Do it yourself</Button>
-                <Button Background="DarkCyan" Height="40" Click="SettingsClick">Settings</Button>
+                <Button Style="{DynamicResource buttonStyle}" Height="40" Click="AddTextClick">Do it yourself</Button>
+                <Button Style="{DynamicResource buttonStyle}" Height="40" Click="SettingsClick">Settings</Button>
             </StackPanel>
         </ScrollViewer>
-        <Border Background="AliceBlue" BorderThickness="2, 2, 1, 1" 
-                                            BorderBrush="DarkCyan"  Grid.Column="1">
+        <Border Background="{DynamicResource appBackground}" BorderThickness="2, 2, 1, 1" 
+                                            BorderBrush="{DynamicResource appBorder}"  Grid.Column="1">
             <Grid Name="StageContainer" HorizontalAlignment="Stretch" 
                     VerticalAlignment="Stretch"></Grid>
         </Border>

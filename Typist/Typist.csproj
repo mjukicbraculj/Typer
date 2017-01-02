@@ -75,14 +75,11 @@
     <Compile Include="StageControls\LessonPlay.xaml.cs">
       <DependentUpon>LessonPlay.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StageControls\ShowProfileControl.xaml.cs">
-      <DependentUpon>ShowProfileControl.xaml</DependentUpon>
+    <Compile Include="StageControls\ProfileControl.xaml.cs">
+      <DependentUpon>ProfileControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StageControls\ShowSettingsControl.xaml.cs">
-      <DependentUpon>ShowSettingsControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="StageControls\TextDetailControl.xaml.cs">
-      <DependentUpon>TextDetailControl.xaml</DependentUpon>
+    <Compile Include="StageControls\SettingsControl.xaml.cs">
+      <DependentUpon>SettingsControl.xaml</DependentUpon>
     </Compile>
     <Page Include="Login.xaml">
       <SubType>Designer</SubType>
@@ -125,15 +122,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StageControls\ShowProfileControl.xaml">
+    <Page Include="StageControls\ProfileControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StageControls\ShowSettingsControl.xaml">
+    <Page Include="StageControls\SettingsControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StageControls\TextDetailControl.xaml">
+    <Page Include="Themes\RedTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\GreenTheme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

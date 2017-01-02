@@ -5,13 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="650" d:DesignWidth="800">
-    <DockPanel Background="AliceBlue">
+    <DockPanel Background="{DynamicResource appBackground}">
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="300" Name="LoginScreen">
             <TextBlock FontSize="40" FontStyle="Italic" Margin="0, 0, 0, 30" HorizontalAlignment="Center"> 
                     Typist
             </TextBlock>
             <Border BorderThickness="3, 3, 3, 3" BorderBrush="DarkCyan"  CornerRadius="10,10,10,10">
-                <StackPanel Background="DarkCyan" Margin="2, 2, 2, 2">
+                <StackPanel Background="{DynamicResource appBorder}" Margin="2, 2, 2, 2">
                     <Label Margin="30, 20, 30, 0">
                         <Bold>Username</Bold>
                     </Label>
