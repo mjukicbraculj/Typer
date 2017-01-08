@@ -33,7 +33,7 @@
                 </StackPanel>
                 <Button Style="{DynamicResource buttonStyle}" Height="40" Click="IntroductionClick">Introduction</Button>
                 <Button Style="{DynamicResource buttonStyle}" Height="40" Click="ShowBeginnerChoice" 
-                        >Begnner</Button>
+                        >Beginner</Button>
                 <StackPanel Name="BeginnerSP">
                     <Button Background="{DynamicResource childButtonBackground}" Height="25" Click="LessonClick" 
                             Name="Beginner0">J, F and Space</Button>

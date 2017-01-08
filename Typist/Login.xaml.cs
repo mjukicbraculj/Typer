@@ -71,6 +71,7 @@ namespace Typist
             {
                 LoginErrorTB.Text = error;
                 LoginErrorTB.Visibility = Visibility.Visible;
+                SuccessfulRegTB.Visibility = Visibility.Hidden;
             }
         }
 
