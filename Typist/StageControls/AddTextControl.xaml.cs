@@ -29,10 +29,7 @@ namespace Typist.StageControls
         {
             InitializeComponent();
             this.username = username;
-            if (username != null)
-                WellcomeTB.Text = "Dear " + username + ",";
-            else
-                WellcomeTB.Text = "Dear user,";
+            
             groupLessons = new Dictionary<string, List<string>>();
             LessonSP.Visibility = Visibility.Collapsed;
             TextSP.Visibility = Visibility.Collapsed;
@@ -119,6 +116,24 @@ namespace Typist.StageControls
         private void ClearResultTB(object sender, KeyEventArgs e)
         {
             ResultTB.Text = String.Empty;
+        }
+
+        private void GenerateTextClick(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                int length = Int32.Parse(TextLengthTB.Text);
+                StringBuilder newText = new StringBuilder();
+                Random random = new Random();
+                for (int i = 0; i < length; ++i)
+                    newText.Append(TextTB.Text[random.Next(0, TextTB.Text.Length)]);
+                TextTB.Text = newText.ToString();
+            }
+            catch (Exception exc)
+            {
+
+            }
+
         }
 
         

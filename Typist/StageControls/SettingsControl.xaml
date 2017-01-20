@@ -8,14 +8,26 @@
     <Grid>
         <TabControl>
             <TabItem Header="Appearance">
-                <StackPanel>
+                <StackPanel Margin="10, 10, 0, 0">
                     <Label>
-                        Theme
+                        <Bold>Theme</Bold>
                     </Label>
                     <StackPanel>
                         <RadioButton GroupName="ThemeRB" Content="Red Theme" Checked="SetRedTheme" Name="redCB"/>
                         <RadioButton GroupName="ThemeRB" Content="Green Theme"
                                         Checked="SetGreenTheme" Name="greenCB"/>
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Typing">
+                <StackPanel Margin="10, 10, 0, 0">
+                    <Label>
+                        <Bold>Stop when error occurs?</Bold>
+                    </Label>
+                    <StackPanel>
+                        <RadioButton GroupName="StopRB" Content="Yes" Checked="StopOnCheck" Name="ErrorYesRB"/>
+                        <RadioButton GroupName="StopRB" Content="No"
+                                        Checked="StopOffChecked" Name="ErrorNoRB"/>
                     </StackPanel>
                 </StackPanel>
             </TabItem>

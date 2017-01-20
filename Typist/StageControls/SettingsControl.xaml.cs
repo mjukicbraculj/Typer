@@ -30,7 +30,15 @@ namespace Typist.StageControls
                 redCB.IsChecked = true;
             else if (theme.Equals("GreenTheme.xaml"))
                 greenCB.IsChecked = true;
+            string errorStop = config.AppSettings.Settings["ErrorStop"].Value;
+            if (errorStop.Equals("1"))
+                ErrorYesRB.IsChecked = true;
+            else
+                ErrorNoRB.IsChecked = true;
         }
+
+
+        #region CHECKED HANDLERS
 
         private void SetRedTheme(object sender, RoutedEventArgs e)
         {
@@ -44,6 +52,17 @@ namespace Typist.StageControls
             SetTheme("GreenTheme.xaml");
         }
 
+        private void StopOnCheck(object sender, RoutedEventArgs e)
+        {
+            WriteStopToConfig("1");
+        }
+
+        private void StopOffChecked(object sender, RoutedEventArgs e)
+        {
+            WriteStopToConfig("0");
+        }
+
+        #endregion CHECKED HANDLERS
 
         /// <summary>
         /// Method removes all dictionary resources from app resources and
@@ -61,11 +80,24 @@ namespace Typist.StageControls
             Application.Current.Resources.MergedDictionaries.Add(dict);
         }
 
+        #region WRITING TO CONFIG
+
         private void WriteTemeToConfig(string themeName)
         {
             Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             config.AppSettings.Settings["Theme"].Value = themeName;
             config.Save(ConfigurationSaveMode.Modified);
         }
+
+        private void WriteStopToConfig(string stopValue)
+        {
+            Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            config.AppSettings.Settings["ErrorStop"].Value = stopValue;
+            config.Save(ConfigurationSaveMode.Modified);
+        }
+
+        #endregion WRITING TO CONFIG
+
+
     }
 }

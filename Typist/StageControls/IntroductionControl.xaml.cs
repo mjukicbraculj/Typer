@@ -24,9 +24,9 @@ namespace Typist.StageControls
         {
             InitializeComponent();
             if (username != null)
-                WellcomeTB.Text = "Dear " + username + ", wellcome!";
+                WelcomeTB.Text = "Dear " + username + ", welcome!";
             else
-                WellcomeTB.Text = "Dear user, wellcome!";
+                WelcomeTB.Text = "Dear user, welcome!";
         }
     }
 }

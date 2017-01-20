@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 using Typist.Contoller;
 using Typist.Objects;
 using System.Windows.Threading;
+using System.Configuration;
 
 namespace Typist.StageControls
 {
@@ -45,6 +46,8 @@ namespace Typist.StageControls
 
         Dictionary<char, Button> charBtnDict;
 
+        int stopWhenError;
+
         public string ShowHideHistroyText { get; set; }
         public LessonPlay(string lessonName, string username)
         {
@@ -59,24 +62,20 @@ namespace Typist.StageControls
             TypeGrid.Visibility = Visibility.Collapsed;
             EndOfLessonGrid.Visibility = Visibility.Collapsed;
             if (username == null)
-            {
                 UserDetailsSP.Visibility = Visibility.Collapsed;
-                WellcomeTB.Text = "Dear user,";
-            }
-            else
-                WellcomeTB.Text = "Dear " + username + ", ";
             HyperLinkText.Text = "List previous results...";
             InitializeDictionaryOfButtons();
             nextBtn.IsEnabled = false;
 
             texts = new List<string>();
 
-            
-
             sw = new Stopwatch();
             dt = new DispatcherTimer();
             dt.Tick += new EventHandler(Tick);
             dt.Interval = new TimeSpan(0, 0, 1);
+
+            Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            stopWhenError = Int32.Parse(config.AppSettings.Settings["ErrorStop"].Value);
 
         }
 
@@ -291,13 +290,13 @@ namespace Typist.StageControls
                     MessageBox.Show("Unknown key!!");
                     return;
                 }
+                if (letterCounter == 0)
+                {
+                    sw.Start();
+                    dt.Start();
+                }
                 if (pressedKeyChar == currentLetter)
                 {
-                    if (letterCounter == 0)
-                    {
-                        sw.Start();
-                        dt.Start();
-                    }
                     btn.Background = Brushes.Green;
                     markedLetter.ApplyPropertyValue(TextElement.BackgroundProperty, Brushes.LightBlue);
                     MarkNextLetter();
@@ -307,6 +306,8 @@ namespace Typist.StageControls
                     errors++;
                     btn.Background = Brushes.Red;
                     markedLetter.ApplyPropertyValue(TextElement.BackgroundProperty, Brushes.Red);
+                    if(stopWhenError == 0)
+                        MarkNextLetter();
                 }
             }
             catch (Exception exc)
@@ -377,8 +378,8 @@ namespace Typist.StageControls
         {
             if (e.Key == Key.Space)
             {
-                if (!currentLetter.Equals(' '))
-                    errors++;
+                //if (!currentLetter.Equals(' '))
+                //    errors++;
                 e.Handled = true;
                 CheckCurrentLetter(null, null);
             }

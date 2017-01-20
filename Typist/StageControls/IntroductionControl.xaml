@@ -8,15 +8,15 @@
     <StackPanel Background="{DynamicResource appBackground}">
         <TextBlock Height="50" Padding="10" Margin="30" HorizontalAlignment="Center"
                     FontSize="25" FontStyle="Oblique" TextAlignment="Center"
-                    Style="{DynamicResource headingStyle}">Wellcome!
+                    Style="{DynamicResource headingStyle}">Welcome!
         </TextBlock>
-        <TextBlock Margin="20, 20, 20, 20" TextWrapping="Wrap" FontSize="14" Name="WellcomeTB"></TextBlock>
+        <TextBlock Margin="20, 20, 20, 20" TextWrapping="Wrap" FontSize="14" Name="WelcomeTB"></TextBlock>
         <TextBlock Margin="20, 0, 20, 20" TextWrapping="Wrap" FontSize="14">
-            Here you can find useful lessons that will teach how to write on keyboard properly.<LineBreak/>
-            You can also make your own exercise and save them.<LineBreak/>
-            While you practise, I will measure time and accuracy and make some statistic for you.
-            You can see it on you profile.<LineBreak/>
-            You can change some app settings if you wish. <LineBreak/>
+            Here you can find useful <Bold>lessons</Bold> that will teach how to write on keyboard properly.<LineBreak/>
+            You can also <Bold>make your own exercise</Bold> and save them.<LineBreak/>
+            While you practise, I will <Bold>measure time and accuracy</Bold> and make some statistic for you.
+            You can see it on you <Bold>profile.</Bold><LineBreak/>
+            You can change some app <Bold>settings</Bold> if you wish. <LineBreak/>
             Have nice day and type faster! <LineBreak/>
         </TextBlock>
     </StackPanel>

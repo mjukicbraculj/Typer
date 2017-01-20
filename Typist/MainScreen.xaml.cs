@@ -41,6 +41,7 @@ namespace Typist
             AdvancedSP.Visibility = Visibility.Collapsed;
             PractiseSP.Visibility = Visibility.Collapsed;
             MakePraciseButtons();
+            IntroductionClick(null, null);
             //AddLessonsToDataBase();
         }
 

@@ -110,10 +110,12 @@
                 <Button Style="{DynamicResource buttonStyle}" Height="40" Click="SettingsClick">Settings</Button>
             </StackPanel>
         </ScrollViewer>
-        <Border Background="{DynamicResource appBackground}" BorderThickness="2, 2, 1, 1" 
-                                            BorderBrush="{DynamicResource appBorder}"  Grid.Column="1">
-            <Grid Name="StageContainer" HorizontalAlignment="Stretch" 
-                    VerticalAlignment="Stretch"></Grid>
-        </Border>
+        <ScrollViewer  Grid.Column="1" VerticalScrollBarVisibility="Auto">
+            <Border Background="{DynamicResource appBackground}" BorderThickness="2, 2, 1, 1" 
+                                                BorderBrush="{DynamicResource appBorder}" >
+                <Grid Name="StageContainer" HorizontalAlignment="Stretch" 
+                        VerticalAlignment="Stretch"></Grid>
+            </Border>
+        </ScrollViewer>
     </Grid>
 </UserControl>
