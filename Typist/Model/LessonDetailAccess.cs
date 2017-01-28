@@ -73,7 +73,7 @@ namespace Typist.Model
                                                detail.Time + "')";
                     SQLiteCommand command = new SQLiteCommand(insertDetail, connection);
                     command.ExecuteNonQuery();
-                    return "Results saved successfully!";
+                    return "Results saved successfully! " + insertDetail;
                 }
                 catch (Exception e)
                 {
