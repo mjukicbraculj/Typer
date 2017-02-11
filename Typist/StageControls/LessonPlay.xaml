@@ -21,8 +21,9 @@
                 <TextBlock FontSize="14"><Bold>Good luck!</Bold></TextBlock>
                 <Button Width="100" Style="{DynamicResource buttonStyle}" HorizontalAlignment="Left" Margin="0, 20, 0, 20"
                         Click="GoClick">GO!</Button>
-                <TextBlock Name="EmptyLessonTB" Visibility="Collapsed" Margin="0, 10, 0, 10">Unfortunately, this lesson is empty!
-                (Porin i Laki je nisu popunili :))</TextBlock>
+                <TextBlock Name="EmptyLessonTB" Visibility="Collapsed" Margin="0, 10, 0, 10">
+                    Unfortunately, this lesson is empty!
+                </TextBlock>
                 <TextBlock  HorizontalAlignment="Left" Margin="0, 20, 0, 20" Foreground="DarkCyan">
                     <Hyperlink Click="ViewLessonDetailsClick">
                         <TextBlock Name="HyperLinkText"></TextBlock>

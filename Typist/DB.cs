@@ -44,9 +44,9 @@ namespace Typist
                                                 id integer primary key autoincrement,
                                                 lessonId integer not null,
                                                 userId integer not null,
-                                                speed real not null,
+                                                speed varchar(10) not null,
                                                 errors integer not null,
-                                                time real not null,
+                                                time varchar(10) not null,
                                                 created timestamp default current_timestamp,
                                                 foreign key(lessonId) references lessons(id),
                                                 foreign key(userId) references users(id))";

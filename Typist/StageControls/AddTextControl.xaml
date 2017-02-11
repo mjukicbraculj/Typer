@@ -12,8 +12,10 @@
         <TextBlock Margin="0, 50, 0, 10">
             Select <Bold>group</Bold> name:
         </TextBlock>
-        <ComboBox Margin="0, 10, 20, 0" Width="200" HorizontalAlignment="Left" 
-                  DropDownClosed="GroupSelectionDone" Name="GroupCB" Background="{DynamicResource appBorder}" Foreground="Black">
+        <ComboBox Margin="0, 10, 20, 0" Width="200" HorizontalAlignment="Left" Height="30" 
+                  DropDownClosed="GroupSelectionDone" Name="GroupCB" 
+                  Background="{DynamicResource appBorder}" Foreground="Black"
+                  VerticalContentAlignment="Center">
             <ComboBoxItem >Beginner</ComboBoxItem>
             <ComboBoxItem >Intermediate</ComboBoxItem>
             <ComboBoxItem >Advanced</ComboBoxItem>
@@ -22,15 +24,17 @@
         <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 0" Name="LessonSP">
             <StackPanel Name="OldLessonSP">
                 <TextBlock Margin="0, 20, 0, 10">Now, select <Bold>lesson</Bold>:</TextBlock>
-                <ComboBox Name="LessonCB" Width="200" HorizontalAlignment="Left" Margin="0, 0, 0, 0"
-                          DropDownClosed="LessonSelectionDone" Background="{DynamicResource appBorder}" Foreground="Black">
+                <ComboBox Name="LessonCB" Width="200" HorizontalAlignment="Left" Margin="0, 0, 0, 0" Height="30" 
+                          DropDownClosed="LessonSelectionDone" Background="{DynamicResource appBorder}" Foreground="Black"
+                          VerticalContentAlignment="Center">
                 </ComboBox>
             </StackPanel>
             <StackPanel Margin="30, 0, 0, 0" Name="NewLessonSP">
-                <TextBlock Margin="0, 0, 0, 10">Or add <Bold>new</Bold> one:</TextBlock>
+                <TextBlock Margin="0, 20, 0, 10">Or add <Bold>new</Bold> one:</TextBlock>
                 <StackPanel Orientation="Horizontal">
-                    <TextBox Margin="0, 10, 10, 0" Width="150" Name="LessonNameTB"></TextBox>
-                    <Button Click="AddNewLessonClick" Margin="0, 10, 0, 0" 
+                    <TextBox Margin="0, 0, 0, 0" Width="150" Name="LessonNameTB"
+                             Height="30" VerticalContentAlignment="Center"></TextBox>
+                    <Button Click="AddNewLessonClick" Margin="10, 0, 0, 0" 
                             Style="{DynamicResource buttonStyle}">Add</Button>
                 </StackPanel>
             </StackPanel>

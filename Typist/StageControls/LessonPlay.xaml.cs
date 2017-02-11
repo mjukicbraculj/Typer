@@ -191,9 +191,10 @@ namespace Typist.StageControls
         {
             if (username != null)
             {
-                LessonDetail detail = new LessonDetail(Convert.ToDouble(SpeedTB.Text),
-                                                        Convert.ToInt32(ErrorsTB.Text),
-                                                        sw.Elapsed.TotalSeconds,
+                double speed = Math.Round(Double.Parse(SpeedTB.Text), 3); 
+                LessonDetail detail = new LessonDetail(speed.ToString(),
+                                                        errors,
+                                                        sw.Elapsed.TotalSeconds.ToString(),
                                                         DateTime.Now.ToString(),
                                                         0,
                                                         lessonId,
@@ -203,7 +204,7 @@ namespace Typist.StageControls
             }
             TypeGrid.Visibility = Visibility.Collapsed;
             EndOfLessonGrid.Visibility = Visibility.Visible;
-            ResultErrorTB.Text = "Errors: " + ErrorsTB.Text;
+            ResultErrorTB.Text = "Errors: " + errors;
             ResultTimeTB.Text = "Passed time: " + sw.Elapsed.TotalSeconds;
             ResultSpeedTB.Text = "Speed: " + SpeedTB.Text;
         }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Typist.Objects;
 using System.Data.SQLite;
 using Typist.Model;
+using System.Globalization;
 
 namespace Typist.Model
 {
@@ -35,9 +36,9 @@ namespace Typist.Model
                     SQLiteDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        LessonDetail detail = new LessonDetail(Convert.ToDouble(reader["speed"]),
+                        LessonDetail detail = new LessonDetail(reader["speed"].ToString(),
                                                                 Convert.ToInt32(reader["errors"]),
-                                                                Convert.ToDouble(reader["time"]),
+                                                                reader["time"].ToString(),
                                                                 reader["created"].ToString(),
                                                                 Convert.ToInt32(reader["id"]));
                         details.Add(detail);
@@ -69,11 +70,11 @@ namespace Typist.Model
                     string insertDetail = @"insert into lessondetails(lessonId, userId, speed, 
                                             errors, time) values
                                             (" + detail.LesssonId + ", " + detail.UserId + ", " +
-                                               Math.Round(detail.Speed, 3) + ", " + detail.Errors + ", '" +
-                                               detail.Time + "')";
+                                               detail.Speed + ", " + detail.Errors + ", " +
+                                               detail.Time + ")";
                     SQLiteCommand command = new SQLiteCommand(insertDetail, connection);
                     command.ExecuteNonQuery();
-                    return "Results saved successfully! " + insertDetail;
+                    return "Results saved successfully! ";
                 }
                 catch (Exception e)
                 {
@@ -110,9 +111,9 @@ namespace Typist.Model
                     SQLiteDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        LessonDetail detail = new LessonDetail(Convert.ToDouble(reader["speed"]),
+                        LessonDetail detail = new LessonDetail(reader["speed"].ToString(),
                                                                 Convert.ToInt32(reader["errors"]),
-                                                                Convert.ToDouble(reader["time"]),
+                                                                reader["time"].ToString(),
                                                                 reader["created"].ToString(),
                                                                 Convert.ToInt32(reader["id"]));
                         groupLessonsDict[reader["parent"].ToString()].Add(detail);

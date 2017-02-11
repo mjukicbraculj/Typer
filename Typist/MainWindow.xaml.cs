@@ -35,6 +35,7 @@ namespace Typist
         public MainWindow()
         {
             InitializeComponent();
+            //DB.Drop();
             DB.Prepare();
             if ((username = ConfigurationManager.AppSettings["username"]) != null)
                 ShowMainScreen(username);
@@ -45,7 +46,6 @@ namespace Typist
                 SetTheme("GreenTheme.xaml");
             else if (ConfigurationManager.AppSettings["Theme"].Equals("RedTheme.xaml"))
                 SetTheme("RedTheme.xaml");
-            //DB.Drop();
         }
 
         /// <summary>

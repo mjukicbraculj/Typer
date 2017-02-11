@@ -12,25 +12,12 @@ namespace Typist.Objects
         public int Id { get; set; }
         public int LesssonId { get; set; }
         public int UserId { get; set; }
-        private double speed;
-        public double Speed 
-        {
-            get
-            {
-                return speed;
-            }
-            set
-            {
-                string val = value.ToString();
-                value = Double.Parse(val.Replace(",", "."), CultureInfo.InvariantCulture);
-                this.speed = value;
-            }
-        }
+        public string Speed {get;set;}
         public int Errors { get; set; }
-        public double Time { get; set; }
+        public string Time { get; set; }
         public string Created { get; set; }
         public string Parent { get; set; }
-        public LessonDetail(double speed, int errors, double time, string created,
+        public LessonDetail(string speed, int errors, string time, string created,
                             int id = -1, int lessonId = -1, int userId = -1)
         {
             Id = id;
